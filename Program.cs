@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
 using PP_1lab_Anna.Database;
-using static PP_1lab_Anna.ServiceExtensions;
+using PP_1lab_Anna.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

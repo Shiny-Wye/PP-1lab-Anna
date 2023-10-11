@@ -1,6 +1,6 @@
 ﻿using PP_1lab_Anna.Interfaces.StudentsInterfaces;
 
-namespace PP_1lab_Anna
+namespace PP_1lab_Anna.ServiceExtensions
 {
     public static class ServiceExtensions
     {
