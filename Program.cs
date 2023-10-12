@@ -3,6 +3,7 @@ using NLog;
 using NLog.Web;
 using PP_1lab_Anna.Database;
 using PP_1lab_Anna.ServiceExtensions;
+using PP_1lab_Anna.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,8 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    app.UseMiddleware<ExceptionHandlerMiddleware>();
 
     app.UseAuthorization();
 
