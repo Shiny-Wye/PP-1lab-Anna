@@ -1,7 +1,7 @@
 ﻿using PP_1lab_Anna.Database;
-using PP_1lab_Anna.Database.Filters.StudentFilters;
 using PP_1lab_Anna.Models;
 using Microsoft.EntityFrameworkCore;
+using PP_1lab_Anna.Filters;
 
 namespace PP_1lab_Anna.Interfaces.StudentsInterfaces
 {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PP_1lab_Anna.Database.Filters.StudentFilters;
+using PP_1lab_Anna.Filters;
 using PP_1lab_Anna.Interfaces.StudentsInterfaces;
 using PP_1lab_Anna.Models;
 
