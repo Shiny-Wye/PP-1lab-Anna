@@ -7,14 +7,16 @@ namespace PP_1lab_Anna.Database
     public class StudentDbContext : DbContext
     {
         //Добавляем таблицы
-        DbSet<Student> Students { get; set; }
-        DbSet<Group> Groups { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Добавляем конфигурации к таблицам
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
             modelBuilder.ApplyConfiguration(new GroupConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseConfiguration());
         }
 
         public StudentDbContext(DbContextOptions<StudentDbContext> options) : base(options)
