@@ -44,7 +44,7 @@ namespace PP_1lab_Anna.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Students",
+                name: "cd_student",
                 columns: table => new
                 {
                     student_id = table.Column<int>(type: "int", nullable: false, comment: "Идентификатор записи студента")

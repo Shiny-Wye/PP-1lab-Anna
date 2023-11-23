@@ -1,4 +1,4 @@
-﻿namespace PP_1lab_Anna.Filters
+﻿namespace PP_1lab_Anna.Filters.StudentGroupFilter
 {
     public class StudentGroupFilter
     {

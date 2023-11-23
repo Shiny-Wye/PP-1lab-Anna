@@ -16,7 +16,14 @@ namespace PP_1lab_Anna.Models
 
         [JsonIgnore]
         public Group? Group { get; set; }
-        //public Group? Group { get; set; }
+
+        public string FIO
+        {
+            get
+            {
+                return FirstName + " " + LastName + " " + MiddleName;
+            }
+        }
 
     }
 }

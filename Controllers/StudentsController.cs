@@ -2,9 +2,8 @@
 using PP_1lab_Anna.Interfaces.StudentsInterfaces;
 using PP_1lab_Anna.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
-using PP_1lab_Anna.Filters;
+using PP_1lab_Anna.Filters.StudentGroupFilter;
+using PP_1lab_Anna.Filters.StudentFIOFilter;
 
 namespace PP_1lab_Anna.Controllers
 {
@@ -24,10 +23,18 @@ namespace PP_1lab_Anna.Controllers
         }
 
      
-        [HttpPost(Name = "GetStudentsByGroup")]
+        [HttpPost("GetStudentsByGroup")]
         public async Task<IActionResult> GetStudentsByGroupAsync(StudentGroupFilter filter, CancellationToken cancellationToken = default)
         {
             var students = await _studentService.GetStudentsByGroupAsync(filter, cancellationToken);
+
+            return Ok(students);
+        }
+
+        [HttpPost("GetStudentsByFio")]
+        public async Task<IActionResult> GetStudentsByFioAsync(StudentFIOFilter filter, CancellationToken cancellationToken = default)
+        {
+            var students = await _studentService.GetStudentsByFioAsync(filter, cancellationToken);
 
             return Ok(students);
         }
@@ -108,19 +115,20 @@ namespace PP_1lab_Anna.Controllers
             return Ok();
         }
 
-        //[HttpDelete("DeleteGroup")]
-        //public IActionResult DeleteStudent(string firstName, PP_1lab_Anna.Models.Student updatedStudent)
-        //{
-        //    var existingStudent = _context.Students.FirstOrDefault(g => g.FirstName == firstName);
+        [HttpDelete("DeleteStudent")]
+        public IActionResult DeleteStudent(int id, PP_1lab_Anna.Models.Student updatedStudent)
+        {
+            var existingStudent = _context.Students.FirstOrDefault(g => g.StudentId == id);
 
-        //    if (existingStudent == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _context.Students.Remove(existingStudent);
-        //    _context.SaveChanges();
+            if (existingStudent == null)
+            {
+                return NotFound();
+            }
+            _context.Students.Remove(existingStudent);
+            _context.SaveChanges();
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
+
     }
 }
